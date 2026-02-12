@@ -1,0 +1,31 @@
+.footer {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+.footer-content h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.footer-content p {
+    color: #888;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+    color: #bbb;
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid #222;
+    color: #666;
+    font-size: 0.9rem;
+}

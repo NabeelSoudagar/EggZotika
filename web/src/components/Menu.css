@@ -1,0 +1,101 @@
+.menu-section {
+    padding: 5rem 2rem;
+    background: rgba(18, 18, 18, 0.4);
+    backdrop-filter: blur(5px);
+    text-align: center;
+}
+
+.menu-section h2 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.menu-section h2::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 4px;
+    background: var(--secondary-color);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Slightly wider cards */
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-item {
+    background: #1f1f1f;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #333;
+    overflow: hidden;
+    /* Contains the image */
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border-color: var(--primary-color);
+}
+
+.menu-obj-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.menu-obj-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.menu-item:hover .menu-obj-img img {
+    transform: scale(1.1);
+}
+
+.menu-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center content */
+}
+
+.menu-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--light-text);
+}
+
+.menu-item p {
+    color: #aaa;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    flex-grow: 1;
+    /* Pushes price down if texts vary in length */
+}
+
+.menu-item .price {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}

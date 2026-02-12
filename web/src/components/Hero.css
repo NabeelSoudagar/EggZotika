@@ -1,0 +1,49 @@
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    /* Transparent background to see the global animation */
+    background: transparent;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    color: white;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    /* Added shadow for readability */
+}
+
+.hero-overlay h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 1rem;
+}
+
+.hero-overlay p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        pointer-events: none;
+        /* Allow scrolling underneath on mobile if needed */
+    }
+
+    .hero-overlay h1 {
+        font-size: 3rem;
+    }
+
+    .hero-overlay p {
+        font-size: 1rem;
+    }
+}

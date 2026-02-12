@@ -3,9 +3,6 @@
     top: 0;
     left: 0;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 1.5rem 2rem;
     background: rgba(26, 26, 26, 0.9);
     backdrop-filter: blur(10px);
@@ -13,7 +10,16 @@
     transition: all 0.3s ease;
 }
 
-.navbar-brand {
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--primary-color);

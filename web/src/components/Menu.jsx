@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
 import './Menu.css';
 import MomosImg from '../assets/momos.jfif';
 import FrenchFriesImg from '../assets/french.jfif';
+import { staggerChildren } from '../utils/animations';
 
 const menuItems = [
     {
@@ -36,33 +38,34 @@ const menuItems = [
     },
     {
         name: 'Maggi',
-        description: 'Classic comfort food, cooked to perfection.',
-        price: '₹50',
+        description: 'Classic masala maggi with extra veggies.',
+        price: '₹70',
         image: 'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?q=80&w=600&auto=format&fit=crop'
     },
     {
-        name: 'Pizza',
-        description: 'Cheesy, delicious, and loaded with toppings.',
-        price: '₹250',
-        image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600&auto=format&fit=crop'
-    },
-    {
-        name: 'Pasta',
-        description: 'Creamy or tangy, the choice is yours.',
-        price: '₹180',
-        image: 'https://images.unsplash.com/photo-1626844131082-256783844137?q=80&w=600&auto=format&fit=crop'
-    },
-    {
         name: 'Coffee',
-        description: 'Freshly brewed to kickstart your day.',
-        price: '₹80',
-        image: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=600&auto=format&fit=crop'
+        description: 'Hot brewed coffee to kickstart your day.',
+        price: '₹50',
+        image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600&auto=format&fit=crop'
     },
+    {
+        name: 'Omelette',
+        description: 'Fluffy eggs cooked with onions, tomatoes, and chilies.',
+        price: '₹60',
+        image: 'https://images.unsplash.com/photo-1510693206972-df098062cb71?q=80&w=600&auto=format&fit=crop'
+    }
 ];
 
 const Menu = () => {
+    const containerRef = useRef(null);
+
+    useGSAP(() => {
+        const items = containerRef.current.querySelectorAll('.menu-item');
+        staggerChildren(items);
+    }, { scope: containerRef });
+
     return (
-        <section id="menu" className="menu-section">
+        <section id="menu" className="menu-section" ref={containerRef}>
             <h2>Our Menu</h2>
             <div className="menu-grid">
                 {menuItems.map((item, index) => (

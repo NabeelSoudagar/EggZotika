@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
 import './Gallery.css';
+import { staggerChildren } from '../utils/animations';
 
 const photos = [
     'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&auto=format&fit=crop', // Food 1
@@ -11,8 +13,15 @@ const photos = [
 ];
 
 const Gallery = () => {
+    const containerRef = useRef(null);
+
+    useGSAP(() => {
+        const items = containerRef.current.querySelectorAll('.gallery-item');
+        staggerChildren(items);
+    }, { scope: containerRef });
+
     return (
-        <section id="gallery" className="gallery-section">
+        <section id="gallery" className="gallery-section" ref={containerRef}>
             <h2>Gallery</h2>
             <div className="gallery-grid">
                 {photos.map((src, index) => (

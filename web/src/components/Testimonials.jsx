@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
 import './Testimonials.css';
+import { staggerChildren } from '../utils/animations';
 
 const reviews = [
     {
@@ -20,8 +22,15 @@ const reviews = [
 ];
 
 const Testimonials = () => {
+    const containerRef = useRef(null);
+
+    useGSAP(() => {
+        const cards = containerRef.current.querySelectorAll('.testimonial-card');
+        staggerChildren(cards);
+    }, { scope: containerRef });
+
     return (
-        <section id="testimonials" className="testimonials-section">
+        <section id="testimonials" className="testimonials-section" ref={containerRef}>
             <h2>What Our Customers Say</h2>
             <div className="testimonials-grid">
                 {reviews.map((review, index) => (
